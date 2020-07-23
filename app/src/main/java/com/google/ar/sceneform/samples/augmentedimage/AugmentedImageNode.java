@@ -55,7 +55,7 @@ public class AugmentedImageNode extends AnchorNode {
               .build();
       urCorner =
           ModelRenderable.builder()
-              .setSource(context, Uri.parse("models/frame_upper_right.sfb"))
+              .setSource(context, Uri.parse("models/textthree.sfb"))
               .build();
       llCorner =
           ModelRenderable.builder()
@@ -104,7 +104,8 @@ public class AugmentedImageNode extends AnchorNode {
     cornerNode.setRenderable(ulCorner.getNow(null));
 
     // Upper right corner.
-    localPosition.set(0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
+//    localPosition.set(0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
+    localPosition.set(0.0f, 0.0f, 0.0f);
     cornerNode = new Node();
     cornerNode.setParent(this);
     cornerNode.setLocalPosition(localPosition);

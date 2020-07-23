@@ -55,7 +55,7 @@ public class AugmentedImageNode extends AnchorNode {
               .build();
       urCorner =
           ModelRenderable.builder()
-              .setSource(context, Uri.parse("models/textthree.sfb"))
+              .setSource(context, Uri.parse("models/five.sfb"))
               .build();
       llCorner =
           ModelRenderable.builder()
@@ -97,11 +97,11 @@ public class AugmentedImageNode extends AnchorNode {
     Node cornerNode;
 
     // Upper left corner.
-    localPosition.set(-0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
-    cornerNode = new Node();
-    cornerNode.setParent(this);
-    cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(ulCorner.getNow(null));
+//    localPosition.set(-0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
+//    cornerNode = new Node();
+//    cornerNode.setParent(this);
+//    cornerNode.setLocalPosition(localPosition);
+//    cornerNode.setRenderable(ulCorner.getNow(null));
 
     // Upper right corner.
 //    localPosition.set(0.5f * image.getExtentX(), 0.0f, -0.5f * image.getExtentZ());
@@ -112,18 +112,18 @@ public class AugmentedImageNode extends AnchorNode {
     cornerNode.setRenderable(urCorner.getNow(null));
 
     // Lower right corner.
-    localPosition.set(0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
-    cornerNode = new Node();
-    cornerNode.setParent(this);
-    cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(lrCorner.getNow(null));
+//    localPosition.set(0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
+//    cornerNode = new Node();
+//    cornerNode.setParent(this);
+//    cornerNode.setLocalPosition(localPosition);
+//    cornerNode.setRenderable(lrCorner.getNow(null));
 
     // Lower left corner.
-    localPosition.set(-0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
-    cornerNode = new Node();
-    cornerNode.setParent(this);
-    cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(llCorner.getNow(null));
+//    localPosition.set(-0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
+//    cornerNode = new Node();
+//    cornerNode.setParent(this);
+//    cornerNode.setLocalPosition(localPosition);
+//    cornerNode.setRenderable(llCorner.getNow(null));
   }
 
   public AugmentedImage getImage() {

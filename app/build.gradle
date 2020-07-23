@@ -49,6 +49,7 @@ dependencies {
 
     // Use the Sceneform UX Package pre-built from Maven.
     implementation "com.google.ar.sceneform.ux:sceneform-ux:1.9.0"
+    implementation 'com.android.support:support-v4:28.0.0'
 
     // Use the Sceneform UX Package built from the source files included in the sceneformux folder.
     //api project(":sceneformux")
@@ -76,7 +77,7 @@ apply plugin: 'com.google.ar.sceneform.plugin'
 //        'sampledata/models/frame_upper_right.sfa',
 //        'src/main/assets/models/frame_upper_right')
 
-sceneform.asset('sampledata/models/five.fbx',
+sceneform.asset('sampledata/models/fifteen.fbx',
         'default',
-        'sampledata/models/five.sfa',
-        'src/main/assets/models/five')
+        'sampledata/models/fifteen.sfa',
+        'src/main/assets/models/fifteen')

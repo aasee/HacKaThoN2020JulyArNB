@@ -41,30 +41,37 @@ public class AugmentedImageNode extends AnchorNode {
   // Models of the 4 corners.  We use completable futures here to simplify
   // the error handling and asynchronous loading.  The loading is started with the
   // first construction of an instance, and then used when the image is set.
-  private static CompletableFuture<ModelRenderable> ulCorner;
-  private static CompletableFuture<ModelRenderable> urCorner;
-  private static CompletableFuture<ModelRenderable> lrCorner;
-  private static CompletableFuture<ModelRenderable> llCorner;
+//  private static CompletableFuture<ModelRenderable> ulCorner;
+//  private static CompletableFuture<ModelRenderable> urCorner;
+//  private static CompletableFuture<ModelRenderable> lrCorner;
+//  private static CompletableFuture<ModelRenderable> llCorner;
+
+  private static CompletableFuture<ModelRenderable> ArText;
 
   public AugmentedImageNode(Context context) {
     // Upon construction, start loading the models for the corners of the frame.
-    if (ulCorner == null) {
-      ulCorner =
-          ModelRenderable.builder()
-              .setSource(context, Uri.parse("models/frame_upper_left.sfb"))
-              .build();
-      urCorner =
-          ModelRenderable.builder()
-              .setSource(context, Uri.parse("models/five.sfb"))
-              .build();
-      llCorner =
-          ModelRenderable.builder()
-              .setSource(context, Uri.parse("models/frame_lower_left.sfb"))
-              .build();
-      lrCorner =
-          ModelRenderable.builder()
-              .setSource(context, Uri.parse("models/frame_lower_right.sfb"))
-              .build();
+    if (ArText == null) {
+//      ulCorner =
+//          ModelRenderable.builder()
+//              .setSource(context, Uri.parse("models/frame_upper_left.sfb"))
+//              .build();
+//      urCorner =
+//          ModelRenderable.builder()
+//              .setSource(context, Uri.parse("models/seven.sfb"))
+//              .build();
+//      llCorner =
+//          ModelRenderable.builder()
+//              .setSource(context, Uri.parse("models/frame_lower_left.sfb"))
+//              .build();
+//      lrCorner =
+//          ModelRenderable.builder()
+//              .setSource(context, Uri.parse("models/frame_lower_right.sfb"))
+//              .build();
+
+      ArText =
+              ModelRenderable.builder()
+                      .setSource(context, Uri.parse("models/fifteen.sfb"))
+                      .build();
     }
   }
 
@@ -79,8 +86,8 @@ public class AugmentedImageNode extends AnchorNode {
     this.image = image;
 
     // If any of the models are not loaded, then recurse when all are loaded.
-    if (!ulCorner.isDone() || !urCorner.isDone() || !llCorner.isDone() || !lrCorner.isDone()) {
-      CompletableFuture.allOf(ulCorner, urCorner, llCorner, lrCorner)
+    if (!ArText.isDone()) {
+      CompletableFuture.allOf(ArText)
           .thenAccept((Void aVoid) -> setImage(image))
           .exceptionally(
               throwable -> {
@@ -109,7 +116,7 @@ public class AugmentedImageNode extends AnchorNode {
     cornerNode = new Node();
     cornerNode.setParent(this);
     cornerNode.setLocalPosition(localPosition);
-    cornerNode.setRenderable(urCorner.getNow(null));
+    cornerNode.setRenderable(ArText.getNow(null));
 
     // Lower right corner.
 //    localPosition.set(0.5f * image.getExtentX(), 0.0f, 0.5f * image.getExtentZ());
